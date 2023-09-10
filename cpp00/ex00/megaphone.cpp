@@ -1,29 +1,30 @@
 #include <iostream>
-#include <cctype>
+#include <string>
 
-using std::string;
-using std::cout;
-
-void  upper(string str)
+void  upper(std::string str)
 {
   int i = 0;
   while (str[i])
   {
-    cout << (char)toupper(str[i]);
+    std::cout << (char)std::toupper(str[i]);
     i++;
   }
   
 }
 int	main(int ac, char **av)
 {
+  std::string input;
   int i;
 
   i = 1;
   if (ac == 1)
-    cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
   else
   while(i < ac)
-    upper(av[i++]);
-  cout << "\n";
+  {
+    input.assign(av[i++]);
+    upper(input);
+  }
+  std::cout << "\n";
   return (0);
 }	
