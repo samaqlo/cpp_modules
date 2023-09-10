@@ -1,7 +1,7 @@
 SRC = contact.cpp phonebook.cpp
 OBG = $(SRC:.cpp=.o)
 NAME = phonebook
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
 	g++ $(FLAGS) $(OBG) -o $(NAME)

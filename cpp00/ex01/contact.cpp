@@ -31,6 +31,7 @@ void    print_field(std::string field)
             std::cout << field;
         }
 }
+
 void    print_infos(contact &i_contact, int i)
 {
     std::string index;
