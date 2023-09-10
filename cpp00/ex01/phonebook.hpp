@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 class contact
 {
@@ -25,12 +26,13 @@ class phonebook
     contact contacts[8];
 
     void    add_contact();
-    void    print_contact();
-    void    fill_contact(std::string prompt, int object, int index);
+    void    print_contact(contact &contact);
+    int    fill_contact(std::string prompt, int object, int index);
     void    search_contact(phonebook &my_phonebook);
     // void    exit_prog();
 };
 
 void    print_line();
+void    reopen_cin();
 
 #endif
