@@ -40,16 +40,21 @@ int    phonebook::fill_contact(std::string prompt, int object, int index)
         {
             case 0:
                 contacts[index].f_name.assign(input);
+                break;
             case 1:
                 contacts[index].l_name.assign(input);
+                break;
             case 2:
                 contacts[index].n_name.assign(input);
+                break;
             case 3:
                 contacts[index].p_num.assign(input);
+                break;
             case 4:
                 contacts[index].darkset_sec.assign(input);
-            return (0);
+                break;
         }
+        return (0);
     }
     return (0);
 }
@@ -123,6 +128,6 @@ int main()
     {
         cmd_line(cmd);
         if (exec_commands(cmd, my_phonebook))
-            exit(1);
+            return (1);
     }    
 } 
