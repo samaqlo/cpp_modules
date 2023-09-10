@@ -75,6 +75,7 @@ void    phonebook::add_contact()
             contacts[index].l_name.assign("");
             contacts[index].n_name.assign("");
             contacts[index].p_num.assign("");
+            contacts[index].index = 0;
             return;
         }
     }

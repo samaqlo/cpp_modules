@@ -30,7 +30,6 @@ class phonebook
     void    print_contact(contact &contact);
     int    fill_contact(std::string prompt, int object, int index);
     void    search_contact(phonebook &my_phonebook);
-    // void    exit_prog();
 };
 
 void    print_line();
