@@ -4,12 +4,12 @@ NAME = megaphone
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
-	g++ $(FLAGS) $(OBG) -o $(NAME)
+	c++ $(FLAGS) $(OBG) -o $(NAME)
 
 all : $(NAME)
 
 %.o : %.cpp
-	g++ $(FLAGS) -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean :
 	rm -rf $(OBG)

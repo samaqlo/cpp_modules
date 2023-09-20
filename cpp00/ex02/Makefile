@@ -1,6 +1,6 @@
-SRC = contact.cpp phonebook.cpp
+SRC = Account.cpp tests.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = phonebook
+NAME = Acc
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp phonebook.hpp
+%.o : %.cpp Account.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
