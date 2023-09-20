@@ -88,9 +88,9 @@ void	Account::_displayTimestamp( void )
     struct tm *time_struct;
     char buffer[19];
 
-    std::time(&stock_time);
+    time(&stock_time);
     time_struct = localtime(&stock_time);
-    std::strftime(buffer, 19, "[%Y%m%e_%H%M%S] ", time_struct);
+    strftime(buffer, 19, "[%Y%m%e_%H%M%S] ", time_struct);
     std::cout << buffer;
 }
 
