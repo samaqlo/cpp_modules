@@ -1,4 +1,4 @@
-SRC = contact.cpp phonebook.cpp
+SRC = main.cpp contact.cpp phonebook.cpp
 OBG = $(SRC:.cpp=.o)
 NAME = phonebook
 FLAGS = -Wall -Wextra -Werror -std=c++98

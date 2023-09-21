@@ -1,4 +1,51 @@
 #include "phonebook.hpp"
+#include "contact.hpp"
+
+contact::contact()
+{
+    this->index = 0;
+};
+std::string contact::getfname()
+{
+    return (this->f_name);
+}
+std::string contact::getlname()
+{
+    return (this->l_name);
+}
+std::string contact::getnname()
+{
+    return (this->n_name);
+}
+std::string contact::getpnum()
+{
+    return (this->p_num);
+}
+std::string contact::getdsec()
+{
+    return (this->darkset_sec);
+}
+void contact::setfname(std::string content)
+{
+    this->f_name.assign(content);
+}
+void contact::setlname(std::string content)
+{
+    this->l_name.assign(content);
+}
+void contact::setnname(std::string content)
+{
+    this->n_name.assign(content);
+}
+void contact::setpnum(std::string content)
+{
+    this->p_num.assign(content);
+}
+void contact::setdsec(std::string content)
+{
+    this->darkset_sec.assign(content);
+}
+
 
 void    print_line()
 {
@@ -26,9 +73,8 @@ void    print_field(std::string field)
         }
     else
         {
-            for (int i = 0; i < 10 - (int)field.length(); i++)
-                std::cout << ' ';
-            std::cout << field;
+           std::cout << std::setw(10);
+           std::cout << field;
         }
 }
 
@@ -40,9 +86,9 @@ void    print_infos(contact &i_contact, int i)
     str_stream << i;
     index = str_stream.str();
     print_field(index);
-    print_field(i_contact.f_name);
-    print_field(i_contact.l_name);
-    print_field(i_contact.n_name);
+    print_field(i_contact.getfname());
+    print_field(i_contact.getlname());
+    print_field(i_contact.getnname());
 }
 
 void    phonebook::search_contact(phonebook &my_phonebook)

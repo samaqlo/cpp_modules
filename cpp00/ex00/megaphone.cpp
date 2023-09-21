@@ -25,6 +25,6 @@ int	main(int ac, char **av)
     input.assign(av[i++]);
     upper(input);
   }
-  std::cout << "\n";
+  std::cout << std::endl;
   return (0);
 }	

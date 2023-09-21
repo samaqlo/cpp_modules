@@ -2,7 +2,7 @@
 #include <iostream>
 #include <time.h>
 
-static int index_acc;
+int index_acc;
 
 int Account::_totalAmount;
 int Account::_nbAccounts;
@@ -90,7 +90,7 @@ void	Account::_displayTimestamp( void )
 
     time(&stock_time);
     time_struct = localtime(&stock_time);
-    strftime(buffer, 19, "[%Y%m%e_%H%M%S] ", time_struct);
+    strftime(buffer, 19, "[%Y%m%d_%H%M%S] ", time_struct);
     std::cout << buffer;
 }
 

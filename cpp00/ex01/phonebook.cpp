@@ -3,11 +3,11 @@
 void    phonebook::print_contact(contact &contact)
 {
         std::cout << "_____________________________________________\n";
-        std::cout << "First Name : " << contact.f_name << "\n";
-        std::cout << "Last Name  : " << contact.l_name << "\n";
-        std::cout << "nickName   : " << contact.n_name << "\n";
-        std::cout << "phone num  : " << contact.p_num << "\n";
-        std::cout << "darkest secret : " << contact.p_num << "\n";
+        std::cout << "First Name : " << contact.getfname() << std::endl;
+        std::cout << "Last Name  : " << contact.getlname() << std::endl;
+        std::cout << "nickName   : " << contact.getnname() << std::endl;
+        std::cout << "phone num  : " << contact.getpnum() << std::endl;
+        std::cout << "darkest secret : " << contact.getdsec() << std::endl;
         std::cout << "_____________________________________________\n";
 }
 int     phone_ckeck(std::string input, int obj)
@@ -39,19 +39,19 @@ int    phonebook::fill_contact(std::string prompt, int object, int index)
         switch (object)
         {
             case 0:
-                contacts[index].f_name.assign(input);
+                contacts[index].setfname(input);
                 break;
             case 1:
-                contacts[index].l_name.assign(input);
+                contacts[index].setlname(input);
                 break;
             case 2:
-                contacts[index].n_name.assign(input);
+                contacts[index].setnname(input);
                 break;
             case 3:
-                contacts[index].p_num.assign(input);
+                contacts[index].setpnum(input);
                 break;
             case 4:
-                contacts[index].darkset_sec.assign(input);
+                contacts[index].setdsec(input);
                 break;
         }
         return (0);
@@ -70,65 +70,14 @@ void    phonebook::add_contact()
     {
         if (fill_contact(prompts[i], i, index))
         {
-            contacts[index].darkset_sec.assign("");
-            contacts[index].f_name.assign("");
-            contacts[index].l_name.assign("");
-            contacts[index].n_name.assign("");
-            contacts[index].p_num.assign("");
+            contacts[index].setdsec("");
+            contacts[index].setfname("");
+            contacts[index].setlname("");
+            contacts[index].setnname("");
+            contacts[index].setpnum("");
             contacts[index].index = 0;
             return;
         }
     }
     index++;
 }
-int   exec_commands(std::string  &cmd, phonebook& my_phonebook)
-{
-    if (!cmd.compare("ADD"))
-        my_phonebook.add_contact();
-    else if (!cmd.compare("SEARCH"))
-        my_phonebook.search_contact(my_phonebook);
-    else if (!cmd.compare("EXIT"))
-        return (std::cout << "!!! EXIT !!!\n", 1);
-    return (0);
-}
-void    reopen_cin()
-{
-    std::cin.clear();
-    std::fclose(stdin);
-    std::fopen("/dev/tty", "r");
-    std::cout << std::endl;
-}
-int    cmd_line(std::string &cmd)
-{
-    std::cout << "_____________________________________________\n";
-    std::cout << "Hello, this is the awesome phonebook :" << "\n";
-    std::cout << "1. ADD" << "\n";
-    std::cout << "2. SEARCH" << "\n";
-    std::cout << "3. EXIT" << "\n";
-    while(1)
-    {
-        std::cout << "please enter a command : ";
-        getline(std::cin, cmd);
-        if (std::cin.eof())
-        {
-            reopen_cin();
-            continue;
-        }
-        if (!cmd.compare("ADD") || !cmd.compare("SEARCH") || !cmd.compare("EXIT"))
-            break;
-    }
-    return (0);
-}
- 
-int main()
-{
-    phonebook my_phonebook;
-    std::string cmd;
-
-    while(1)
-    {
-        cmd_line(cmd);
-        if (exec_commands(cmd, my_phonebook))
-            return (1);
-    }    
-} 
