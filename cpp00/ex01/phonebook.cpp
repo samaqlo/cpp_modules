@@ -1,13 +1,13 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
-void    phonebook::print_contact(contact &contact)
+void    PhoneBook::print_Contact(Contact &Contact)
 {
         std::cout << "_____________________________________________\n";
-        std::cout << "First Name : " << contact.getfname() << std::endl;
-        std::cout << "Last Name  : " << contact.getlname() << std::endl;
-        std::cout << "nickName   : " << contact.getnname() << std::endl;
-        std::cout << "phone num  : " << contact.getpnum() << std::endl;
-        std::cout << "darkest secret : " << contact.getdsec() << std::endl;
+        std::cout << "First Name : " << Contact.getfname() << std::endl;
+        std::cout << "Last Name  : " << Contact.getlname() << std::endl;
+        std::cout << "nickName   : " << Contact.getnname() << std::endl;
+        std::cout << "phone num  : " << Contact.getpnum() << std::endl;
+        std::cout << "darkest secret : " << Contact.getdsec() << std::endl;
         std::cout << "_____________________________________________\n";
 }
 int     phone_ckeck(std::string input, int obj)
@@ -22,7 +22,7 @@ int     phone_ckeck(std::string input, int obj)
     }
     return (1);
 }
-int    phonebook::fill_contact(std::string prompt, int object, int index)
+int    PhoneBook::fill_Contact(std::string prompt, int object, int index)
 {
     std::string input;
     while(1)
@@ -39,43 +39,43 @@ int    phonebook::fill_contact(std::string prompt, int object, int index)
         switch (object)
         {
             case 0:
-                contacts[index].setfname(input);
+                Contacts[index].setfname(input);
                 break;
             case 1:
-                contacts[index].setlname(input);
+                Contacts[index].setlname(input);
                 break;
             case 2:
-                contacts[index].setnname(input);
+                Contacts[index].setnname(input);
                 break;
             case 3:
-                contacts[index].setpnum(input);
+                Contacts[index].setpnum(input);
                 break;
             case 4:
-                contacts[index].setdsec(input);
+                Contacts[index].setdsec(input);
                 break;
         }
         return (0);
     }
     return (0);
 }
-void    phonebook::add_contact()
+void    PhoneBook::add_Contact()
 {
     static int index;
     std::string prompts[5] = {"First Name: ", "Last Name: ", "Nick name: ", "Phone Number: ", "Darkset Secret: "};
 
     if (index == 8)
         index = 0;
-    contacts[index].index = index + 1;
+    Contacts[index].index = index + 1;
     for (int i = 0; i < 5; i++)
     {
-        if (fill_contact(prompts[i], i, index))
+        if (fill_Contact(prompts[i], i, index))
         {
-            contacts[index].setdsec("");
-            contacts[index].setfname("");
-            contacts[index].setlname("");
-            contacts[index].setnname("");
-            contacts[index].setpnum("");
-            contacts[index].index = 0;
+            Contacts[index].setdsec("");
+            Contacts[index].setfname("");
+            Contacts[index].setlname("");
+            Contacts[index].setnname("");
+            Contacts[index].setpnum("");
+            Contacts[index].index = 0;
             return;
         }
     }

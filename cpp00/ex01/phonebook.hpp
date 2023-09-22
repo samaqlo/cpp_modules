@@ -1,22 +1,22 @@
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef PhoneBook_HPP
+#define PhoneBook_HPP
 
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <cstdio>
 #include <iomanip>
-#include "contact.hpp"
+#include "Contact.hpp"
 
-class phonebook
+class PhoneBook
 {
     private:
-        contact contacts[8];
+        Contact Contacts[8];
     public:
-        void    add_contact();
-        void    print_contact(contact &contact);
-        int    fill_contact(std::string prompt, int object, int index);
-        void    search_contact(phonebook &my_phonebook);
+        void    add_Contact();
+        void    print_Contact(Contact &Contact);
+        int    fill_Contact(std::string prompt, int object, int index);
+        void    search_Contact(PhoneBook &my_PhoneBook);
 };
 
 void    print_line();

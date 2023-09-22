@@ -1,7 +1,7 @@
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef Contact_HPP
+#define Contact_HPP
 
-class contact
+class Contact
 {
     public :
         int     index;
@@ -15,7 +15,7 @@ class contact
         void setnname(std::string);
         void setpnum(std::string);
         void setdsec(std::string);
-        contact();
+        Contact();
 
     private :
         std::string  f_name;

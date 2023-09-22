@@ -1,11 +1,11 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
-int   exec_commands(std::string  &cmd, phonebook& my_phonebook)
+int   exec_commands(std::string  &cmd, PhoneBook& my_PhoneBook)
 {
     if (!cmd.compare("ADD"))
-        my_phonebook.add_contact();
+        my_PhoneBook.add_Contact();
     else if (!cmd.compare("SEARCH"))
-        my_phonebook.search_contact(my_phonebook);
+        my_PhoneBook.search_Contact(my_PhoneBook);
     else if (!cmd.compare("EXIT"))
         return (std::cout << "!!! EXIT !!!\n", 1);
     return (0);
@@ -27,7 +27,7 @@ int    check_input(std::string cmd)
 int    cmd_line(std::string &cmd)
 {
     std::cout << "_____________________________________________\n";
-    std::cout << "Hello, this is the awesome phonebook :" << std::endl;
+    std::cout << "Hello, this is the awesome PhoneBook :" << std::endl;
     std::cout << "1. ADD" << std::endl;
     std::cout << "2. SEARCH" << std::endl;
     std::cout << "3. EXIT" << std::endl;
@@ -48,13 +48,13 @@ int    cmd_line(std::string &cmd)
  
 int main()
 {
-    phonebook my_phonebook;
+    PhoneBook my_PhoneBook;
     std::string cmd;
 
     while(1)
     {
         cmd_line(cmd);
-        if (exec_commands(cmd, my_phonebook))
+        if (exec_commands(cmd, my_PhoneBook))
             return (1);
     }    
 } 

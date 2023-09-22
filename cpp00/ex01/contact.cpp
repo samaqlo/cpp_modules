@@ -1,47 +1,47 @@
-#include "phonebook.hpp"
-#include "contact.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-contact::contact()
+Contact::Contact()
 {
     this->index = 0;
 };
-std::string contact::getfname()
+std::string Contact::getfname()
 {
     return (this->f_name);
 }
-std::string contact::getlname()
+std::string Contact::getlname()
 {
     return (this->l_name);
 }
-std::string contact::getnname()
+std::string Contact::getnname()
 {
     return (this->n_name);
 }
-std::string contact::getpnum()
+std::string Contact::getpnum()
 {
     return (this->p_num);
 }
-std::string contact::getdsec()
+std::string Contact::getdsec()
 {
     return (this->darkset_sec);
 }
-void contact::setfname(std::string content)
+void Contact::setfname(std::string content)
 {
     this->f_name.assign(content);
 }
-void contact::setlname(std::string content)
+void Contact::setlname(std::string content)
 {
     this->l_name.assign(content);
 }
-void contact::setnname(std::string content)
+void Contact::setnname(std::string content)
 {
     this->n_name.assign(content);
 }
-void contact::setpnum(std::string content)
+void Contact::setpnum(std::string content)
 {
     this->p_num.assign(content);
 }
-void contact::setdsec(std::string content)
+void Contact::setdsec(std::string content)
 {
     this->darkset_sec.assign(content);
 }
@@ -78,7 +78,7 @@ void    print_field(std::string field)
         }
 }
 
-void    print_infos(contact &i_contact, int i)
+void    print_infos(Contact &i_Contact, int i)
 {
     std::string index;
     std::ostringstream  str_stream;
@@ -86,12 +86,12 @@ void    print_infos(contact &i_contact, int i)
     str_stream << i;
     index = str_stream.str();
     print_field(index);
-    print_field(i_contact.getfname());
-    print_field(i_contact.getlname());
-    print_field(i_contact.getnname());
+    print_field(i_Contact.getfname());
+    print_field(i_Contact.getlname());
+    print_field(i_Contact.getnname());
 }
 
-void    phonebook::search_contact(phonebook &my_phonebook)
+void    PhoneBook::search_Contact(PhoneBook &my_PhoneBook)
 {
     std::string input;
     int index;
@@ -102,7 +102,7 @@ void    phonebook::search_contact(phonebook &my_phonebook)
     {
         print_line();
         std::cout << std::endl;
-        print_infos(my_phonebook.contacts[i], i + 1);
+        print_infos(my_PhoneBook.Contacts[i], i + 1);
         std::cout << '|';
         std::cout << std::endl;
     }
@@ -121,11 +121,11 @@ void    phonebook::search_contact(phonebook &my_phonebook)
             return;
         if (input.empty() || index < 1 || index > 8)
             continue;
-        if (!contacts[index - 1].index)
+        if (!Contacts[index - 1].index)
             {
-                std::cout << "!!! This contact is empty !!!";
+                std::cout << "!!! This Contact is empty !!!";
                 continue;
             }
-        print_contact(contacts[index - 1]);
+        print_Contact(Contacts[index - 1]);
     }
 }

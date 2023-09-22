@@ -1,6 +1,6 @@
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+SRC = Zombie.cpp main.cpp zombieHorde.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = PhoneBook
+NAME = Zombie01
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp PhoneBook.hpp Contact.hpp
+%.o : %.cpp Zombie.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
