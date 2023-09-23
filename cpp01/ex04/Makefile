@@ -1,4 +1,4 @@
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp 
+SRC = main.cpp 
 OBG = $(SRC:.cpp=.o)
 NAME = Weapon
 FLAGS = -Wall -Wextra -Werror -std=c++98
