@@ -2,14 +2,18 @@
 #define FILE_HPP
 
 #include <iostream>
+#include <fstream>
 
 class File
 {
-    public:
-        std::string name;
+    private:
         std::string str1;
         std::string str2;
-        File::File(std::string name, std::string str1, std::string str2);
+        std::string line;
+    public:
+        File();
+        void    replace(std::string line);
+
 };
 
 #endif
