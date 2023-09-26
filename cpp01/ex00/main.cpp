@@ -8,4 +8,7 @@ int main()
     ok->announce();
     randomChump("Zombie two");
     delete ok;
+
+    randomChump("imad");
+
 }

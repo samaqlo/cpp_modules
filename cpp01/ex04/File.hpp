@@ -9,10 +9,11 @@ class File
     private:
         std::string str1;
         std::string str2;
-        std::string line;
     public:
         File();
-        void    replace(std::string line);
+        void    replace(std::string& line);
+        void    set_str1(std::string str1);
+        void    set_str2(std::string str2);
 
 };
 

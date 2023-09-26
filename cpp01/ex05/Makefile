@@ -1,6 +1,6 @@
-SRC = File.cpp main.cpp
+SRC = Harl.cpp main.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = File_replace
+NAME = harl
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
@@ -8,14 +8,14 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp File.hpp
+%.o : %.cpp Harl.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
 	rm -rf $(OBG)
 
 fclean : clean
-	rm -rf $(NAME) *.replace
+	rm -rf $(NAME)
 
 re : fclean all
 

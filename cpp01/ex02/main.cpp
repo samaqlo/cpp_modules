@@ -8,7 +8,7 @@ int main()
 
     std::cout << "_________________Memory addrs_____________________" << std::endl;
     std::cout << "string addr : " << &brain << std::endl;
-    std::cout << "stringPTR addr : " << &stringPTR << std::endl;
+    std::cout << "stringPTR addr : " << stringPTR << std::endl;
     std::cout << "stringREF addr : " << &stringREF << std::endl;
     std::cout << "_________________Values_____________________" << std::endl;
     std::cout << "string Value : " << brain << std::endl;
