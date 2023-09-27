@@ -11,13 +11,11 @@ void    File::replace(std::string& line)
             m_pos = line.find(this->str1, pos);
             if (m_pos < 0)
                 break;
-            else if (!m_pos)
-                pos++;
             else
             {
                 line.erase(m_pos, this->str1.size());
                 line.insert(m_pos, this->str2);
-                pos += this->str1.size();
+                pos = m_pos + this->str1.size();
             }
         }
 }

@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp Zombie.hpp
+%.o : %.cpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :

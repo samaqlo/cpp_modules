@@ -5,14 +5,13 @@ int main(int ac, char **av)
     if (ac != 4)
         return (std::cout << "Bad Args" << std::endl, 1);
     File file_1;
-    std::ifstream in_file;
     std::string filename;
     std::string line;
 
     filename.assign(av[1]);
     file_1.set_str1(av[2]);
     file_1.set_str2(av[3]);
-    in_file.open(filename, std::fstream::in);
+    std::ifstream in_file(filename);
     if (!in_file)
         return (std::cerr << filename << " : No such file or directory" <<  std::endl, 1);
     std::ofstream out_file(filename + ".replace");
