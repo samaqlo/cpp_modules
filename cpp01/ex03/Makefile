@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp HumanA.hpp HumanB.hpp
+%.o : %.cpp HumanA.hpp HumanB.hpp Weapon.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
