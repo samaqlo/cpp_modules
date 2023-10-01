@@ -20,51 +20,34 @@ void    Harl::error( void )
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-int     get_level_index(std::string level)
-{
-    while(!level.compare("DEBUG"))
-        return (0);
-    while(!level.compare("INFO"))
-        return (1);
-    while(!level.compare("WARNING"))
-        return (2);
-    while(!level.compare("ERROR"))
-        return (3);
-    return (-1);
-}
-
 void Harl::complain( std::string level )
 {
     int index;
-    // void (Harl::*ptr_to_member[4])(void);
 
-    index = get_level_index(level);
-    // ptr_to_member[0] = &Harl::debug;
-    // ptr_to_member[1] = &Harl::info;
-    // ptr_to_member[2] = &Harl::warning;
-    // ptr_to_member[3] = &Harl::error;
-    if (index == -1)
+    index =  index = ("DEBUG" == level) * 1 + ("INFO" == level) * 2 + ("WARNING" == level) * 3 + ("ERROR" == level) * 4;
+
+    if (!index)
     {
         std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
         return;
     }
-    while(index < 4)
+    while(index <= 4)
     {
         switch(index)
         {
-            case 0:
+            case 1:
                 std::cout << "[ DEBUG ]" << std::endl;
                 this->debug();
                 break;
-            case 1:
+            case 2:
                 std::cout << "[ INFO ]" << std::endl;
                 this->info();
                 break;
-            case 2:
+            case 3:
                 std::cout << "[ WARNING ]" << std::endl;
                 this->warning();
                 break;
-            case 3:
+            case 4:
                 std::cout << "[ ERROR ]" << std::endl;
                 this->error();
                 break;
