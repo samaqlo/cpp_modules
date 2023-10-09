@@ -6,6 +6,8 @@ void    File::replace(std::string& line)
     int m_pos;
 
     pos = 0;
+    if (!this->str1.size() || !line.size())
+        return;
     while (pos <= (int)line.size())
         {
             m_pos = line.find(this->str1, pos);

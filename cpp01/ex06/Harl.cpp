@@ -26,11 +26,6 @@ void Harl::complain( std::string level )
 
     index =  index = ("DEBUG" == level) * 1 + ("INFO" == level) * 2 + ("WARNING" == level) * 3 + ("ERROR" == level) * 4;
 
-    if (!index)
-    {
-        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-        return;
-    }
     while(index <= 4)
     {
         switch(index)
@@ -52,7 +47,8 @@ void Harl::complain( std::string level )
                 this->error();
                 break;
             default :
-                break;
+                std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+                return;
         }
         std::cout << std::endl;
         index++;
