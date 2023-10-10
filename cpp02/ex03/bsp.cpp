@@ -5,25 +5,25 @@
 Fixed cal_area(Point a, Point b, Point c)
 {
     Fixed area;
-(void)c;
-(void)b;
-    area = a.get_x();
-    std::cout << a.get_x() << std::endl;
+
+    area = (a.get_x() * b.get_y() + b.get_x() * c.get_y() + c.get_x() * a.get_y()) - \
+            (a.get_y() * b.get_x() + b.get_y() * c.get_x() + c.get_y() * a.get_x());
+    if (area < 0)
+        area = area * -1;
     
-    if (area < Fixed(0))
-        area = area * Fixed(-1);
-    return (area/Fixed(2));
+    return (area/2);
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
     Fixed sum;
-    Point a1 = (Point) a;
-    Fixed ok = a1.get_x();
-    std::cout << ok.toFloat() << std::endl;
+    Fixed area1 = cal_area(a, b , point);
+    Fixed area2 = cal_area(a, c , point);
+    Fixed area3 = cal_area(c, b , point);
 
-    sum = cal_area(a, b , point);
-    std::cout << sum << std::endl;
+    if (area1 == 0 || area2 == 0 || area3 == 0)
+        return (0);
+    sum = area1 + area2 + area3;
     if (cal_area(a,b,c) == sum)
         return (true);
     return(false);

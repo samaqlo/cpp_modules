@@ -1,6 +1,6 @@
 SRC = Fixed.cpp main.cpp Point.cpp bsp.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = Fixed
+NAME = BSP
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp Fixed.hpp
+%.o : %.cpp Fixed.hpp Point.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :

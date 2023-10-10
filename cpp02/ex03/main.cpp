@@ -2,11 +2,11 @@
 
 int main( void ) 
 {
-    Point a(-3.43f, 7.74f);
-    Point b(-6.67f, 3.44f);
-    Point c(-0.95f, 4.32f);
-    Point o(-8.09f, 6.5f);
-
+    Point a(-6.01836f, 6.66808f);
+    Point b(-3.56638f, 0.57856f);
+    Point c(2.36147f, 4.80889f);
+    Point o(-2.71762f, 4.13527f);
+    
     std::cout << bsp(a, b, c, o) << std::endl;
 
     return 0;

@@ -19,7 +19,7 @@ Fixed::Fixed(int const val)
 Fixed::Fixed(float const val)
 {
     std::cout << "Float constructor called" << std::endl;
-    num =  round(val * (1 << frac_bits));
+    num =  roundf(val * (1 << frac_bits));
 }
 
 float   Fixed::toFloat( void ) const

@@ -14,10 +14,8 @@ class Point
         Point(const Point& mypoint);
         ~Point();
         Point& operator=(const Point& mypoint);
-        void set_x(const Fixed& val);
-        void set_y(const Fixed& val);
-        Fixed get_x();
-        Fixed get_y();
+        const Fixed get_x();
+        const Fixed get_y();
 };
 bool bsp( Point const a, Point const b, Point const c, Point const point);
 

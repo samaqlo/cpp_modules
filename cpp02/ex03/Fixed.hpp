@@ -16,22 +16,22 @@ public:
     ~Fixed();
 
     Fixed&  operator=(const Fixed& fpoint);
-    int     operator>(const Fixed& fpoint);  
-    int     operator>=(const Fixed& fpoint);  
-    int     operator<(const Fixed& fpoint);  
-    int     operator<=(const Fixed& fpoint);  
-    int     operator==(const Fixed& fpoint);
-    int     operator!=(const Fixed& fpoint); 
+    bool     operator>(const Fixed& fpoint) const;  
+    bool     operator>=(const Fixed& fpoint) const;  
+    bool     operator<(const Fixed& fpoint) const;  
+    bool     operator<=(const Fixed& fpoint) const;  
+    bool     operator==(const Fixed& fpoint) const;
+    bool     operator!=(const Fixed& fpoint) const; 
 
-    Fixed     operator*(const Fixed& fpoint);
-    Fixed     operator+(const Fixed& fpoint);
-    Fixed     operator-(const Fixed& fpoint);
-    Fixed     operator/(const Fixed& fpoint);
+    Fixed     operator*(const Fixed& fpoint) const;
+    Fixed     operator+(const Fixed& fpoint) const;
+    Fixed     operator-(const Fixed& fpoint) const;
+    Fixed     operator/(const Fixed& fpoint) const;
 
     Fixed     operator++(int);
     Fixed     operator--(int);
-    Fixed     operator++();
-    Fixed     operator--();
+    Fixed&     operator++();
+    Fixed&     operator--();
 
 
     int     getRawBits( void ) const;
