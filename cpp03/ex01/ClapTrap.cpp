@@ -1,35 +1,27 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) :  Name(name)
-{
-    std::cout << " Parametrized Constructor called " << std::endl;
-    hit_pt = 10;
-    energie_pt = 100;
-    att_dm = 0;
-}
-
 ClapTrap::ClapTrap()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor called base" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name) :  Name(name)
+{
+    std::cout << "Constructor called " << std::endl;
     hit_pt = 10;
-    energie_pt = 100;
+    energie_pt = 10;
     att_dm = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap&  clap)
 {
-    std::cout << " Copy Constructor called " << std::endl;
+    std::cout << "Copy Constructor called " << std::endl;
     *this = clap;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
-}
-
-void    ClapTrap::set_att_dm(int att_dm)
-{
-    this->att_dm = att_dm;
+    std::cout << "Destructor called base" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap&  obj)
@@ -42,6 +34,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap&  obj)
 
     return (*this);   
 }
+
 void ClapTrap::attack(const std::string& target)
 {
     if (!energie_pt || !hit_pt)
