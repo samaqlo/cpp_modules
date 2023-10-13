@@ -11,9 +11,7 @@ Fixed::Fixed()
 Fixed::Fixed(int const val)
 {
     std::cout << "Int constructor called" << std::endl;
-    num = 0;
-    num = val;
-    num <<= frac_bits;
+    num = val * (1 << frac_bits);
 }
 
 Fixed::Fixed(float const val)

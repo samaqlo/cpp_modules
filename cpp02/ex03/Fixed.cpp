@@ -11,9 +11,7 @@ Fixed::Fixed()
 Fixed::Fixed(int const val)
 {
     std::cout << "Int constructor called" << std::endl;
-    num = 0;
-    num = val;
-    num <<= frac_bits;
+    num = val * (1 << frac_bits);
 }
 
 Fixed::Fixed(float const val)
@@ -102,7 +100,7 @@ Fixed     Fixed::operator*(const Fixed& fpoint) const
 {
     Fixed mul;
 
-    mul.setRawBits(this->getRawBits() * fpoint.getRawBits() / (1 << frac_bits));
+    mul.setRawBits(this->num * fpoint.num / (1 << frac_bits));
     return (mul);
 }
 
@@ -131,7 +129,7 @@ Fixed     Fixed::operator/(const Fixed& fpoint) const
     }
     Fixed div;
 
-    div.setRawBits(roundf(this->toFloat() / fpoint.toFloat() * (1 << frac_bits)));
+    div.setRawBits(roundf((float)this->num / fpoint.num * (1 << frac_bits)));
     return (div);
 }
 
