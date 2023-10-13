@@ -5,19 +5,17 @@ DiamondTrap::DiamondTrap()
 {
     std::cout << "\033[33mDiamondTrap Default constructor called\033[0m" << std::endl;
     name.assign(Name);
-    hit_pt = FragTrap::hit_pt;//100
-    energie_pt = ScavTrap::energie_pt;//50
-    att_dm = FragTrap::att_dm;//30
+    hit_pt = 100;
+    att_dm = 30;
 }
 
 DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name")
 {
     std::cout << "\033[33mDiamondTrap constructor called\033[0m" << std::endl;
     name.assign(Name);
-    hit_pt = FragTrap::hit_pt;
-    energie_pt = ScavTrap::energie_pt;
-    att_dm = FragTrap::att_dm;
-    std::cout << this->hit_pt << " " << this->energie_pt << " " << ScavTrap::energie_pt << std::endl;
+    hit_pt = 100;
+    att_dm = 30;
+    std::cout << this->hit_pt << " " << this->energie_pt << " " << att_dm << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)

@@ -6,7 +6,7 @@ FragTrap::FragTrap()
     std::cout << "\033[32mFragTrap Default constructor called\033[0m" << std::endl;
     hit_pt = 100;
     energie_pt = 100;
-    att_dm = 50;
+    att_dm = 30;
 }
 
 FragTrap::FragTrap(const FragTrap& other) 
@@ -35,7 +35,7 @@ FragTrap::FragTrap(std::string    Name) : ClapTrap(Name)
     std::cout << "\e[1m\033[32mFragTrap constructor called\033[0m" << std::endl;
     hit_pt = 100;
     energie_pt = 100;
-    att_dm = 50;
+    att_dm = 30;
 }
 
 void FragTrap::highFivesGuys(void)
