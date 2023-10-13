@@ -10,7 +10,6 @@ Fixed cal_area(Point a, Point b, Point c)
             (a.get_y() * b.get_x() + b.get_y() * c.get_x() + c.get_y() * a.get_x());
     if (area < 0)
         area = area * -1;
-    
     return (area/2);
 }
 

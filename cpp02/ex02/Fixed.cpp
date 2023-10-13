@@ -100,8 +100,9 @@ bool     Fixed::operator!=(const Fixed& fpoint) const
 
 Fixed     Fixed::operator*(const Fixed& fpoint) const
 {
-    Fixed mul(this->toFloat() * fpoint.toFloat());
+    Fixed mul;
 
+    mul.setRawBits(this->getRawBits() * fpoint.getRawBits() / (1 << frac_bits));
     return (mul);
 }
 
@@ -128,7 +129,9 @@ Fixed     Fixed::operator/(const Fixed& fpoint) const
     {
         return (std::cout << "!!! Error : Division by 0 !!!" << std::endl, Fixed(0));
     }
-    Fixed div(this->toFloat() / fpoint.toFloat());
+    Fixed div;
+
+    div.setRawBits(roundf(this->toFloat() / fpoint.toFloat() * (1 << frac_bits)));
     return (div);
 }
 
