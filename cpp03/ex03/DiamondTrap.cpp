@@ -3,7 +3,6 @@
 DiamondTrap::DiamondTrap() 
 {
     std::cout << "\033[33mDiamondTrap Default constructor called\033[0m" << std::endl;
-    name.assign(Name);
     hit_pt = 100;
     att_dm = 30;
 }
@@ -11,7 +10,7 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name")
 {
     std::cout << "\033[33mDiamondTrap constructor called\033[0m" << std::endl;
-    name.assign(Name);
+    this->Name.assign(Name);
     hit_pt = 100;
     att_dm = 30;
 }
@@ -37,5 +36,5 @@ DiamondTrap::~DiamondTrap()
 
 void    DiamondTrap::whoAmI()
 {
-    std::cout << "DiamondTrap name : \"" << name << "\" || ClapTrap name : \"" << Name << "\"" <<std::endl;
+    std::cout << "DiamondTrap name : \"" << DiamondTrap::Name << "\" || ClapTrap name : \"" << ClapTrap::Name << "\"" <<std::endl;
 }
