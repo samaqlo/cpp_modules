@@ -1,4 +1,3 @@
-
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() 
@@ -15,7 +14,6 @@ DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name")
     name.assign(Name);
     hit_pt = 100;
     att_dm = 30;
-    std::cout << this->hit_pt << " " << this->energie_pt << " " << att_dm << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
@@ -39,5 +37,5 @@ DiamondTrap::~DiamondTrap()
 
 void    DiamondTrap::whoAmI()
 {
-    std::cout << "DiamondTrap name : " << name << " ClapTrap name : " << Name << std::endl;
+    std::cout << "DiamondTrap name : \"" << name << "\" || ClapTrap name : \"" << Name << "\"" <<std::endl;
 }

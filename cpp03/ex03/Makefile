@@ -1,7 +1,7 @@
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = FragTrap
-FLAGS = -Wall -g -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+NAME = DiamondTrap
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 $(NAME) : $(OBG)
 	c++ $(FLAGS) $(OBG) -o $(NAME)

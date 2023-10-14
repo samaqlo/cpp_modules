@@ -3,7 +3,9 @@
 int main()
 {
     ClapTrap cla("asseem");
-    cla.set_att_dm(5);
+
     cla.attack("samaqlo");
+    cla.takeDamage(10);
+    cla.takeDamage(10);
 
 }
