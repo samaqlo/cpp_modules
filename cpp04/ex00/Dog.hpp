@@ -3,17 +3,17 @@
 #define DOG_HPP
 
 #include <iostream>
+#include "Animal.hpp"
 
-class Dog {
-private:
-    
+class Dog : public Animal 
+{
 
 public:
     Dog();
-    Dog(const Dog& other);  // Copy constructor
-    Dog& operator=(const Dog& other);  // Copy assignment operator
+    Dog(const Dog& other);
+    Dog& operator=(const Dog& other);
     ~Dog();
-
+    void    makeSound();
 };
 
 #endif

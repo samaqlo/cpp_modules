@@ -1,4 +1,4 @@
-SRC = Animal.cpp Cat.cpp main.cpp
+SRC = Animal.cpp Cat.cpp main.cpp Dog.cpp  WrongAnimal.cpp WrongCat.cpp
 OBG = $(SRC:.cpp=.o)
 NAME = Animal
 FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow

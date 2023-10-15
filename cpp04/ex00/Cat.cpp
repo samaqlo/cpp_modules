@@ -3,19 +3,19 @@
 
 Cat::Cat() : Animal("Cat")
 {
-    std::cout << "Cat Default constructor called" << std::endl;
+    std::cout << "\033[34;40mCat Default constructor called\033[0m" << std::endl;
 
 }
 
 Cat::Cat(const Cat& other) 
 {
-    std::cout << "Cat Copy constructor" << std::endl;
+    std::cout << "\033[34;40mCat Copy constructor\033[0m" << std::endl;
     *this = other;
 }
 
 Cat& Cat::operator=(const Cat& other) 
 {
-    std::cout << "Cat Copy assignment operator called" << std::endl;
+    std::cout << "\033[34;40mCat Copy assignment operator called\033[0m" << std::endl;
 
     this->type = other.type;
     return (*this);
@@ -23,10 +23,10 @@ Cat& Cat::operator=(const Cat& other)
 
 Cat::~Cat() 
 {
-    std::cout << "Cat Destructor called" << std::endl;
+    std::cout << "\033[34;40mCat Destructor called\033[0m" << std::endl;
 }
 
 void    Cat::makeSound()
 {
-    std::cout << "!!! meow !!!" << std::endl;
+    std::cout << "\033[34;40m!!! Cat Sound !!!\033[0m" << std::endl;
 }
