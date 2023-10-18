@@ -27,8 +27,3 @@ AAnimal&     AAnimal::operator=(const AAnimal& other)
     type.assign(other.type);
     return(*this);
 }
-
-void    AAnimal::makeSound()
-{
-    std::cout << "\033[31mAnimal sound\033[0m" << std::endl;
-}
