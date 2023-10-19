@@ -30,13 +30,7 @@ MateriaSource::~MateriaSource()
 {
     std::cout << "\033[34mMateriaSource Destructor called\033[0m" << std::endl;
     for (int i = 0; i < 4; i++)
-    {
-        if (!inventory[i])
-            continue;
-        else if (inventory[i + 1] && inventory[i] == inventory[i + 1])
-            inventory[i + 1] = NULL;
         delete inventory[i];
-    }
 }
 
 void MateriaSource::learnMateria(AMateria* m)
@@ -49,7 +43,7 @@ void MateriaSource::learnMateria(AMateria* m)
             return;
         }
     }
-    std::cerr << "\033[34mMaterias are full\033[0m" << std::endl;
+    std::cerr << "\033[34mCan't learn more materias, inventory is full\033[0m" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
