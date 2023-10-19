@@ -3,7 +3,7 @@
 
 Character::Character() 
 {
-    std::cout << "Character Default constructor called" << std::endl;
+    std::cout << "\033[33mCharacter Default constructor called\033[0m" << std::endl;
     name.assign("default");
     for (int i = 0; i < 4; i++)
        inventory[i] = NULL;
@@ -14,7 +14,7 @@ Character::Character()
 
 Character::Character(std::string name) 
 {
-    std::cout << "Character constructor called" << std::endl;
+    std::cout << "\033[33mCharacter constructor called\033[0m" << std::endl;
     this->name.assign(name);
     for (int i = 0; i < 4; i++)
        inventory[i] = NULL;
@@ -24,18 +24,21 @@ Character::Character(std::string name)
 
 Character::Character(const Character& other) 
 {
-    std::cout << "Character Copy constructor" << std::endl;
+    std::cout << "\033[33mCharacter Copy constructor\033[0m" << std::endl;
     *this = other;
 }
 
 Character& Character::operator=(const Character& other) 
 {
-    std::cout << "Character Copy assignment operator called" << std::endl;
+    std::cout << "\033[33mCharacter Copy assignment operator called\033[0m" << std::endl;
 
     name.assign(other.name);
     for (int i = 0; i < 4; i++)
     {
-        delete inventory[i];
+        if (inventory[i])
+            delete inventory[i];
+        if (inventory[i + 1] && inventory[i] == inventory[i + 1])
+            inventory[i + 1] = NULL;
         if (other.inventory[i])
             inventory[i] = other.inventory[i]->clone();
     }
@@ -45,7 +48,7 @@ Character& Character::operator=(const Character& other)
 
 Character::~Character() 
 {
-    std::cout << "Character Destructor called" << std::endl;
+    std::cout << "\033[33mCharacter Destructor called\033[0m" << std::endl;
     for (int i = 0; i < 4; i++)
         delete inventory[i];
     for (int i = 0; i < 1024; i++)
@@ -70,23 +73,23 @@ void Character::equip(AMateria* m)
     {
         if (inventory[i] == NULL)
         {
-            inventory[i] = m;
+            inventory[i] = m->clone();
             return;
         }
     }
-    std::cerr << "inventory is full" << std::endl;
+    std::cerr << "\033[33minventory is full\033[0m" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
     if (idx > 3 || idx < 0)
     {
-        std::cout << "index  out of the range" << std::endl;
+        std::cout << "\033[33mindex  out of the range\033[0m" << std::endl;
         return ;
     }
     if (inventory[idx] == NULL)
     {
-        std::cout << "Empty!!" << std::endl;
+        std::cout << "\033[33mEmpty!!\033[0m" << std::endl;
         return ;
     }
     int i = 0;
@@ -100,11 +103,11 @@ void Character::use(int idx, ICharacter& target)
 {
     if (idx > 3 || idx < 0)
     {
-        std::cerr << "index  out of the range" << std::endl;
+        std::cerr << "\033[33mindex  out of the range\033[0m" << std::endl;
         return ;
     }
     if (inventory[idx])
         inventory[idx]->use(target);
     else
-        std::cerr << "Materia not set" << std::endl;
+        std::cerr << "\033[33mMateria not set\033[0m" << std::endl;
 }

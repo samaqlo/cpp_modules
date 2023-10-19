@@ -3,30 +3,30 @@
 
 Cure::Cure() : AMateria("cure")
 {
-    std::cout << "Cure Default constructor called" << std::endl;
+    std::cout << "\033[32mCure Default constructor called\033[0m" << std::endl;
 }
 
 Cure::Cure(const Cure& other) 
 {
-    std::cout << "Cure Copy constructor" << std::endl;
+    std::cout << "\033[32mCure Copy constructor\033[0m" << std::endl;
     *this = other;
 }
 
 Cure& Cure::operator=(const Cure& other) 
 {
-    std::cout << "Cure Copy assignment operator called" << std::endl;
+    std::cout << "\033[32mCure Copy assignment operator called\033[0m" << std::endl;
     this->type = other.type;
     return (*this);
 }
 
 Cure::~Cure() 
 {
-    std::cout << "Cure Destructor called" << std::endl;
+    std::cout << "\033[32mCure Destructor called\033[0m" << std::endl;
 }
 
 void    Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+    std::cout << "\033[32m* heals " << target.getName() << "’s wounds *\033[0m" << std::endl;
 }
 
 AMateria* Cure::clone() const

@@ -3,20 +3,20 @@
 
 MateriaSource::MateriaSource() 
 {
-    std::cout << "MateriaSource Default constructor called" << std::endl;
+    std::cout << "\033[34mMateriaSource Default constructor called\033[0m" << std::endl;
     for (int i = 0; i < 4; i++)
        inventory[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other) 
 {
-    std::cout << "MateriaSource Copy constructor" << std::endl;
+    std::cout << "\033[34mMateriaSource Copy constructor\033[0m" << std::endl;
     *this = other;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other) 
 {
-    std::cout << "MateriaSourceCopy assignment operator called" << std::endl;
+    std::cout << "\033[34mMateriaSourceCopy assignment operator called\033[0m" << std::endl;
     for (int i = 0; i < 4; i++)
     {
         delete inventory[i];
@@ -28,9 +28,15 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 
 MateriaSource::~MateriaSource() 
 {
-    std::cout << "MateriaSource Destructor called" << std::endl;
+    std::cout << "\033[34mMateriaSource Destructor called\033[0m" << std::endl;
     for (int i = 0; i < 4; i++)
-            delete inventory[i];
+    {
+        if (!inventory[i])
+            continue;
+        else if (inventory[i + 1] && inventory[i] == inventory[i + 1])
+            inventory[i + 1] = NULL;
+        delete inventory[i];
+    }
 }
 
 void MateriaSource::learnMateria(AMateria* m)
@@ -43,7 +49,7 @@ void MateriaSource::learnMateria(AMateria* m)
             return;
         }
     }
-    std::cerr << "Materias are full" << std::endl;
+    std::cerr << "\033[34mMaterias are full\033[0m" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -53,6 +59,6 @@ AMateria* MateriaSource::createMateria(std::string const & type)
         if (inventory[i] && !inventory[i]->getType().compare(type))
             return (inventory[i]->clone());
     }
-    std::cerr << "Materia not learned before" << std::endl;
+    std::cerr << "\033[34mMateria not learned before\033[0m" << std::endl;
     return (NULL);
 }
