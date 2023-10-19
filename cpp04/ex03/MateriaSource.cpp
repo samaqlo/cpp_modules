@@ -43,6 +43,7 @@ void MateriaSource::learnMateria(AMateria* m)
             return;
         }
     }
+    delete m;
     std::cerr << "\033[34mCan't learn more materias, inventory is full\033[0m" << std::endl;
 }
 
