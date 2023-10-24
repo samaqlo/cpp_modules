@@ -5,47 +5,56 @@ Contact::Contact()
 {
     this->index = 0;
 };
+
 std::string Contact::getfname()
 {
     return (this->f_name);
 }
+
 std::string Contact::getlname()
 {
     return (this->l_name);
 }
+
 std::string Contact::getnname()
 {
     return (this->n_name);
 }
+
 std::string Contact::getpnum()
 {
     return (this->p_num);
 }
+
 std::string Contact::getdsec()
 {
     return (this->darkset_sec);
 }
+
 void Contact::setfname(std::string content)
 {
     this->f_name.assign(content);
 }
+
 void Contact::setlname(std::string content)
 {
     this->l_name.assign(content);
 }
+
 void Contact::setnname(std::string content)
 {
     this->n_name.assign(content);
 }
+
 void Contact::setpnum(std::string content)
 {
     this->p_num.assign(content);
 }
+
 void Contact::setdsec(std::string content)
 {
     this->darkset_sec.assign(content);
 }
-
 
 void    print_line()
 {
