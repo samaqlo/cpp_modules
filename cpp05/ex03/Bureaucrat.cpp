@@ -106,6 +106,11 @@ void    Bureaucrat::signForm(AForm& my_form)
 {
     try
     {
+        if (my_form.get_signed())
+        {
+            std::cout << "form already signed" << std::endl;
+            return;
+        }
         my_form.be_signed(*this);
         std::cout << *this << " signed " << my_form << std::endl;
     }

@@ -1,6 +1,6 @@
-SRC = main.cpp AForm.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp    ShrubberyCreationForm.cpp
+SRC = main.cpp AForm.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp    ShrubberyCreationForm.cpp  Intern.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = Form
+NAME =  Intern
 FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 $(NAME) : $(OBG)

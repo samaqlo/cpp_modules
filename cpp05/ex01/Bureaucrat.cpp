@@ -15,12 +15,13 @@ Bureaucrat::Bureaucrat(std::string  name, int gr)
         if (gr >= 1 && gr <= 150)
             grade = gr;
         else if (gr < 1)
-            throw(Bureaucrat::GradeTooHighException());
+            throw(GradeTooHighException());
         else
-            throw(Bureaucrat::GradeTooLowException());
+            throw(GradeTooLowException());
     }
     catch (std::exception & e)
     {
+        grade = -1;
         std::cout << e.what() << std::endl;
     }
 }
@@ -72,7 +73,7 @@ void    Bureaucrat::increment()
         if (grade - 1 >= 1)
             grade--;
         else
-            throw(Bureaucrat::GradeTooHighException());
+            throw(GradeTooHighException());
     }
     catch (std::exception & e)
      {
@@ -84,10 +85,10 @@ void    Bureaucrat::decrement()
 {
     try
     {
-        if (grade + 1 <= 150)
+        if (grade >= 1 && grade + 1 <= 150)
             grade++;
         else
-            throw(Bureaucrat::GradeTooLowException());
+            throw(GradeTooLowException());
     }
     catch (std::exception & e)
      {
@@ -110,6 +111,6 @@ void    Bureaucrat::signForm(Form& my_form)
     }
     catch (std::exception & e)
     {
-        std::cout << *this <<   " couldn't sign " << my_form << " because " << e.what();
+        std::cout << *this <<   " couldn't sign " << my_form << " because " << e.what() << std::endl;
     }
 }

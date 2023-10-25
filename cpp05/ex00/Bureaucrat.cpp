@@ -15,9 +15,9 @@ Bureaucrat::Bureaucrat(std::string  name, int gr)
         if (gr >= 1 && gr <= 150)
             grade = gr;
         else if (gr < 1)
-            throw(Bureaucrat::GradeTooHighException());
+            throw(GradeTooHighException());
         else
-            throw(Bureaucrat::GradeTooLowException());
+            throw(GradeTooLowException());
     }
     catch (std::exception & e)
     {
@@ -72,7 +72,7 @@ void    Bureaucrat::increment()
         if (grade - 1 >= 1)
             grade--;
         else
-            throw(Bureaucrat::GradeTooHighException());
+            throw(GradeTooHighException());
     }
     catch (std::exception & e)
      {
@@ -87,7 +87,7 @@ void    Bureaucrat::decrement()
         if (grade + 1 <= 150)
             grade++;
         else
-            throw(Bureaucrat::GradeTooLowException());
+            throw(GradeTooLowException());
     }
     catch (std::exception & e)
     {

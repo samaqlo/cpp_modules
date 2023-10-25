@@ -21,15 +21,11 @@ Form::Form(std::string bur_name, const int gte, const int gts) : name(bur_name) 
     try
     {
         if (grade_to_execute < 1 || grade_to_sign < 1)
-            throw(Form::GradeTooHighException());
+            throw(GradeTooHighException());
         else if (grade_to_sign > 150 || grade_to_execute > 150)
-            throw(Form::GradeTooLowException());
+            throw(GradeTooLowException());
     }
-    catch(Form::GradeTooHighException & e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    catch(Form::GradeTooLowException & e)
+    catch(std::exception & e)
     {
         std::cerr << e.what() << std::endl;
     }
@@ -75,14 +71,14 @@ bool    Form::get_signed() const
 
 std::ostream& operator<<(std::ostream& outstream, const Form& my_form)
 {
-    outstream << "Form name : " << my_form.get_name() << " status : " << my_form.get_signed();
+    outstream << "Form name : " << my_form.get_name();
     return (outstream);
 }
 
 void    Form::be_signed(Bureaucrat& Bur)
 {
-        if (Bur.get_grade() <= this->grade_to_sign && grade_to_sign >= 1)
+        if (Bur.get_grade() <= grade_to_sign && grade_to_sign >= 1 && Bur.get_grade() >= 1)
             is_signed = true;
         else
-            throw(Form::GradeTooLowException());
+            throw(GradeTooLowException());
 }
