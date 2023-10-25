@@ -1,9 +1,8 @@
 #include "AForm.hpp"
 
-AForm::AForm() : name("default") , grade_to_execute(150), grade_to_sign(150)
+AForm::AForm() : name("default") ,is_signed(false) ,grade_to_execute(150), grade_to_sign(150)
 {
     // std::cout << "AForm Default constructor called" << std::endl;
-    is_signed = 0;
 }
 
 const char* AForm::GradeTooHighException::what() const throw()
@@ -16,20 +15,12 @@ const char* AForm::GradeTooLowException::what() const throw()
     return ("Grade is too low");
 }
 
-AForm::AForm(std::string bur_name, const int gte, const int gts) : name(bur_name) , grade_to_execute(gte), grade_to_sign(gts)
+AForm::AForm(std::string bur_name, const int gte, const int gts) : name(bur_name) ,is_signed(false) ,grade_to_execute(gte), grade_to_sign(gts)
 {
-    try
-    {
         if (grade_to_execute < 1 || grade_to_sign < 1)
             throw(GradeTooHighException());
         else if (grade_to_sign > 150 || grade_to_execute > 150)
             throw(GradeTooLowException());
-    }
-    catch(std::exception & e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    is_signed = false;
 }
 
 AForm::AForm(const AForm& other) : name(other.name), grade_to_execute(other.grade_to_execute), grade_to_sign(other.grade_to_sign)
