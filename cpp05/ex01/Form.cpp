@@ -66,7 +66,7 @@ std::ostream& operator<<(std::ostream& outstream, const Form& my_form)
     return (outstream);
 }
 
-void    Form::be_signed(Bureaucrat& Bur)
+void    Form::beSigned(Bureaucrat& Bur)
 {
         if (Bur.get_grade() <= grade_to_sign && grade_to_sign >= 1 && Bur.get_grade() >= 1)
             is_signed = true;

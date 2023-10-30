@@ -1,9 +1,8 @@
-#include <iostream>
+// #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-int bit_return(int a, int loc)
+int bit_return(int a, int loc) // Bit returned at location
 {
   int buf = a & 1<<loc;
   if (buf == 0)
@@ -14,14 +13,13 @@ int bit_return(int a, int loc)
 
 int main()
 {
-  //   float k = nanf("kkk");
-  float l = 1;
-  float k = 340282346638528859811704183484516925440.0000000000000000 + MAXFLOAT;
-    float *a = &l;
+    float k = nanf("kk");
+    int *a = &k;
+    printf("%f\n", k);
   for (int i = 31; i>=0; i--)
   {
     printf("%d",bit_return(*a,i));
   }
-  std::cout << k<< std::endl;
+  // 0 11111111 10000000000000000000000
   return 0;
 }

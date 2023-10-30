@@ -26,7 +26,7 @@ class Form
         int     get_grade_to_e() const;
         int     get_grade_to_s() const;
         bool     get_signed() const;
-        void    be_signed(Bureaucrat& Bur);
+        void    beSigned(Bureaucrat& Bur);
 
         class GradeTooHighException : public std::exception
         {

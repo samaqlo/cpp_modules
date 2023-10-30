@@ -4,7 +4,6 @@
 Bureaucrat::Bureaucrat() 
 {
     // std::cout << "Bureaucrat Default constructor called" << std::endl;
-
 }
 
 Bureaucrat::Bureaucrat(std::string  name, int gr)
@@ -16,7 +15,6 @@ Bureaucrat::Bureaucrat(std::string  name, int gr)
         throw(GradeTooHighException());
     else
         throw(GradeTooLowException());
-
 }
 
 
@@ -61,18 +59,18 @@ int Bureaucrat::get_grade() const
 
 void    Bureaucrat::increment()
 {
-        if (grade - 1 >= 1)
-            grade--;
-        else
-            throw(GradeTooHighException());
+    if (grade - 1 >= 1)
+        grade--;
+    else
+        throw(GradeTooHighException());
 }
 
 void    Bureaucrat::decrement()
 {
-        if (grade + 1 <= 150)
-            grade++;
-        else
-            throw(GradeTooLowException());
+    if (grade + 1 <= 150)
+        grade++;
+    else
+        throw(GradeTooLowException());
 }
 
 std::ostream& operator<<(std::ostream& outstream, const Bureaucrat& Bur)
