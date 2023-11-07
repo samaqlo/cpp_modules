@@ -1,25 +1,26 @@
-
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
-
 #include <iostream>
+
+enum
+{
+    t_char,
+    t_int,
+    t_float,
+    t_double,
+};
 
 class ScalarConverter 
 {
     private:
-        int  int_v;
-        float float_v;
-        double double_v;
-        char char_v;
-
-    public:
         ScalarConverter();
+        ~ScalarConverter();
         ScalarConverter(const ScalarConverter& other);
         ScalarConverter& operator=(const ScalarConverter& other);
-        ~ScalarConverter();
-
+    public:
         static  void    convert(std::string literal);
-
 };
+
+int     detect_type(std::string literal);
 
 #endif
