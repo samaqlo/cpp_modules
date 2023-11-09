@@ -51,6 +51,7 @@ int main() {
     // std::cout << "Float (cast from int): " << std::fixed << std::setpres << myFloat << std::endl;
     // double j = INT32_MAX;
     // std::cout << j + 255 << std::endl;
-  std::cout << std::fixed << std::strtof("-1.797631348623158E+309f", NULL);
+  // std::cout << std::fixed << std::strtof("-1.797631348623158E+309f", NULL);
+  std::cout << std::isprint(124) << std::endl;
     return 0;
 }

@@ -37,8 +37,21 @@ ScalarConverter::~ScalarConverter()
 
 void    print_conversion(converter * types)
 {
-    std::cout << "char : '" << types->char_v << "'" << std::endl;
-    std::cout << "int : " << types->int_v << std::endl;
+    switch(types->flags)
+    {
+        case 1:
+            std::cout << "char : impossible" << std::endl;
+            std::cout << "int : " << types->int_v << std::endl;
+            break;
+        case 257:
+            std::cout << "char : impossible" << std::endl;
+            std::cout << "int : impossible" << std::endl;
+            break;
+        default:
+            std::cout << "int : " << types->int_v << std::endl;
+            std::cout << "char : '" << types->char_v << "'" << std::endl;
+            break;
+    }
     std::cout << "float : " << std::fixed << std::setprecision(3) <<  types->float_v << 'f' << std::endl;
     std::cout << "double : " << std::fixed << std::setprecision(3) <<  types->double_v << std::endl;
 }
@@ -57,17 +70,30 @@ void    convert_int(std::string literal, converter * types)
 void    convert_float(std::string literal, converter * types)
 {
     types->float_v = std::atof(literal.c_str());
-    types->double_v = static_cast<double>(types->float_v);
-    types->int_v = static_cast<int>(types->float_v);
-    if ((unsigned int)types->int_v <= 255)
-        types->char_v = static_cast<char>(types->float_v);
+    if (types->float_v != std::numeric_limits<float>::infinity())
+    {
+        types->int_v = static_cast<int>(types->float_v);
+        if (types->float_v != (float)INT_MIN && types->int_v == INT_MIN)
+            types->flags += 256;
+        if (types->int_v <= CHAR_MAX )
+        {
+            types->char_v = static_cast<char>(types->float_v);
+            std::cout << (int)types->char_v << "zeeb";
+        }
+        else
+            types->flags += 1;
+    }
     else
-        types->flags += 1;
+        types->flags = 257;
+    types->double_v = static_cast<double>(types->float_v);
 }
 
 void    convert_double(std::string literal, converter * types)
 {
+    literal.assign("3.40282347e38");
     types->double_v = std::strtod(literal.c_str(), NULL);
+    std::cout << "MAX : " <<types->double_v << std::endl;
+
     types->float_v = static_cast<float> (types->double_v);
     types->int_v = static_cast<int> (types->double_v);
     types->char_v = static_cast<char> (types->double_v);
