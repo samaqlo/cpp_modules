@@ -10,6 +10,8 @@ int     detect_type(std::string literal)
     int i;
 
     i = literal.find_last_of("-+");
+    if (literal == "+inf" || literal == "+inff" || literal == "-inf" || literal == "-inff" || literal == "nan" || literal == "nanf" || literal == "inf" || literal == "inff")
+        return (4);
     if (literal.find_first_not_of("0123456789+-") == literal.npos)
     {
         if (i && i > 0)
