@@ -3,11 +3,11 @@
 
 #include <iostream>
 
-typedef struct DATA
+typedef struct Data
 {
     int x;
     int y;
-} DATA;
+} Data;
 
 class Serializer
 {

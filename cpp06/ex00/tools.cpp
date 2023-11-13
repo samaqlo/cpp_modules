@@ -18,7 +18,7 @@ int     detect_type(std::string literal)
             throw(std::logic_error("Bad input !!!"));
         return (t_int);
     }
-    if (literal.find_first_not_of("0123456789.ef+-") == literal.npos)
+    if (literal.find_first_not_of("0123456789.f+-") == literal.npos)
     {
         if (literal.find("f", 0) == literal.npos && check_double(literal, '.'))
             return (t_double);

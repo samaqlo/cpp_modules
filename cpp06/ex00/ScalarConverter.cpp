@@ -78,8 +78,8 @@ void    convert_int(std::string literal, converter * types)
     types->int_v = std::atoi(literal.c_str());
     types->double_v = static_cast<double>(types->int_v);
     types->float_v = static_cast<float>(types->int_v);
-    if ((unsigned int)types->int_v <= 255)
-        types->char_v = static_cast<char>(types->int_v);
+     if (types->int_v <= CHAR_MAX && types->int_v >= CHAR_MIN)
+        types->char_v = static_cast<char>(types->double_v);
     else
         types->flags += 1;
 }
@@ -125,7 +125,7 @@ void    convert_char(std::string literal, converter * types)
 
 void    scientific_handler(std::string literal, converter *types)
 {
-    types->float_v = std::stof(literal.c_str());
+    types->float_v = std::atof(literal.c_str());
     types->double_v = std::strtod(literal.c_str(), NULL);
     types->flags = 257;
 }
