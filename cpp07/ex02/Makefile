@@ -1,6 +1,6 @@
 SRC = main.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = Array
+NAME = array
 FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 $(NAME) : $(OBG)
@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp Array.hpp
+%.o : %.cpp Array.hpp Array.tpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
