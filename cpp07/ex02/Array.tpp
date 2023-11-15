@@ -38,8 +38,8 @@ Array<T>& Array<T>::operator=(const Array<T>& other)
 template<typename T>
 T& Array<T>::operator[](int index)
 {
-    if (index > (int)_size)
-        throw std::out_of_range("Index out of the range");
+    if (index >= (int)_size || index < 0)
+        throw (std::out_of_range("Index out of the range"));
     return(array[index]);
 }
 
