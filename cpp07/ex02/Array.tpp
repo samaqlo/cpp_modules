@@ -29,6 +29,8 @@ template<typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
 {
     _size = other._size;
+    std::cout << _size << std::endl;
+    delete [] array;
     array = new T[other._size];
     for (int i = 0; i < (int)other._size; i++)
         array[i] = other.array[i];
