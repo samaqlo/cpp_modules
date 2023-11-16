@@ -22,15 +22,17 @@ Array<T>::Array(unsigned int n)
 template<typename T>
 Array<T>::Array(const Array<T>& other)
 {
+    _size = 1;
+    array = new T[_size];
     *this = other;
 }
 
 template<typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
 {
+    if (this != &other)
+        delete [] array;
     _size = other._size;
-    std::cout << _size << std::endl;
-    delete [] array;
     array = new T[other._size];
     for (int i = 0; i < (int)other._size; i++)
         array[i] = other.array[i];
