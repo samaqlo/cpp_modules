@@ -31,11 +31,13 @@ template<typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
 {
     if (this != &other)
+    {
         delete [] array;
-    _size = other._size;
-    array = new T[other._size];
-    for (int i = 0; i < (int)other._size; i++)
-        array[i] = other.array[i];
+        _size = other._size;
+        array = new T[other._size];
+        for (int i = 0; i < (int)other._size; i++)
+            array[i] = other.array[i];
+    }
     return(*this);
 }
 
