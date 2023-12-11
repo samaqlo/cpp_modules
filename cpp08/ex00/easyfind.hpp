@@ -2,16 +2,15 @@
 #define EASYFIND_HPP
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
-class easyfind
+template <typename T>
+int easyfind(T param1, int val)
 {
-private:
-    /* data */
-public:
-    easyfind(/* args */);
-    ~easyfind();
-};
-
-#include <easyfind.tpp>
+   if (std::find(param1.begin(), param1.end(), val) == param1.end())
+      throw(std::out_of_range("!!! not found !!!"));
+   return (std::distance(param1.begin(), std::find(param1.begin(), param1.end(), val)));
+}
 
 #endif

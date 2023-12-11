@@ -1,6 +1,6 @@
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 OBG = $(SRC:.cpp=.o)
-NAME = easyfind
+NAME = span
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp easyfind.hpp
+%.o : %.cpp Span.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
