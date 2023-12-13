@@ -9,41 +9,43 @@ MutantStack<T, Container>::MutantStack()
 template <typename T, typename Container>
 MutantStack<T, Container>::~MutantStack()
 {
-
-}
-
-template <typename T, typename Container>
-T& MutantStack<T, Container>::top()
-{
-    return (c);
-}
-
-template <typename T, typename Container>
-bool MutantStack<T, Container>::empty() const
-{
-    return (Container::empty());
-}
-
-template <typename T, typename Container>
-size_t MutantStack<T, Container>::size() const
-{
-    return (Container::size());
-}
-
-template <typename T, typename Container>
-void MutantStack<T, Container>::push( const T& value )
-{
-    Container::push_back(value);
-}
-
-template <typename T, typename Container>
-void MutantStack<T, Container>::pop()
-{
-    Container::pop_back();
-}     
-
-// template<typename T>
-// std::deque<T>::iterator MutantStack::begin()
-// {
     
-// }
+}
+
+template <typename T, typename Container>
+MutantStack<T, Container>::MutantStack(const MutantStack<T, Container>& other)
+{
+    *this = other;
+}
+
+template <typename T, typename Container>
+MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStack<T, Container>& other)
+{
+    if (this->c != other.c)
+        this->c = other.c;
+    return (*this);
+}
+
+template <typename T, typename Container>
+s_iterator MutantStack<T, Container>::begin()
+{
+    return (this->c.begin());
+}
+
+template <typename T, typename Container>
+s_iterator MutantStack<T, Container>::end()
+{
+    return (this->c.end());
+}
+
+template <typename T, typename Container>
+rs_iterator MutantStack<T, Container>::rbegin()
+{
+    return (this->c.rbegin());
+}
+
+template <typename T, typename Container>
+rs_iterator MutantStack<T, Container>::rend()
+{
+    return (this->c.rend());
+}
