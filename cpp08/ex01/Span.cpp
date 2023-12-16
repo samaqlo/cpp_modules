@@ -1,4 +1,5 @@
 #include "Span.hpp"
+//add main 
 Span::Span()
 {
 
@@ -6,6 +7,9 @@ Span::Span()
 
 Span::Span(unsigned int N)
 {
+    //protaecttion 
+    if ((int)N <= 0)
+        std::cout << "ok"
     this->N = N;
 }
 
@@ -36,6 +40,7 @@ void    Span::addNumber(int elem)
 
 unsigned int Span::shortestSpan()
 {
+    //shortest
     if (vec.size() <= 1)
         throw(std::logic_error("Fill the elements first !!!"));
     std::vector<int>::iterator it_min = std::min_element(vec.begin(), vec.end());
@@ -59,6 +64,7 @@ unsigned int Span::longestSpan()
 
 void    Span::addNumbers(std::vector<int> & seq)
 {
+    //range of iter
     if (vec.size() + seq.size() > N)
         throw(std::length_error("The span is full !!"));
     vec.insert(vec.end(), seq.begin(), seq.end());
