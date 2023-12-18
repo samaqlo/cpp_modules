@@ -1,21 +1,18 @@
 #include "Span.hpp"
-//add main 
+
 Span::Span()
 {
-
+    this->N = 2;
 }
 
 Span::Span(unsigned int N)
 {
-    //protaecttion 
-    if ((int)N <= 0)
-        std::cout << "ok"
     this->N = N;
 }
 
 Span::Span(const Span & other)
 {
-        *this = other;
+    *this = other;
 }
 
 Span& Span::operator=(const Span & other)
@@ -40,17 +37,18 @@ void    Span::addNumber(int elem)
 
 unsigned int Span::shortestSpan()
 {
-    //shortest
     if (vec.size() <= 1)
         throw(std::logic_error("Fill the elements first !!!"));
-    std::vector<int>::iterator it_min = std::min_element(vec.begin(), vec.end());
-    int min = *it_min;
-    vec.erase(it_min);
-    std::vector<int>::iterator it_min_2 = std::min_element(vec.begin(), vec.end());
-    vec.insert(it_min, min);
-    if (it_min == vec.end() - 1)
-        return (*it_min_2 - *it_min);
-    return (*(++it_min_2) - *it_min);
+    unsigned int min_dis = UINT_MAX;
+    for (int i = 0; i < (int)vec.size(); i++)
+    {
+        for (int j = i + 1; j < (int)vec.size(); j++)
+        {
+            if ((unsigned int)abs(vec[i] - vec[j]) < min_dis)
+                min_dis = abs(vec[i] - vec[j]);
+        }
+    }
+    return (min_dis);    
 }
 
 unsigned int Span::longestSpan()
@@ -62,17 +60,14 @@ unsigned int Span::longestSpan()
     return (*it_max - *it_min);
 }
 
-void    Span::addNumbers(std::vector<int> & seq)
+void    Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    //range of iter
-    if (vec.size() + seq.size() > N)
+    if (vec.size() + std::distance(begin, end) > N)
+    {
+        vec.insert(vec.end(), begin, end - (std::distance(begin, end) + vec.size() - N));
         throw(std::length_error("The span is full !!"));
-    vec.insert(vec.end(), seq.begin(), seq.end());
-}
-
-void Span::print_size()
-{
-    std::cout << vec.size() << std::endl;
+    }
+    vec.insert(vec.end(), begin, end);
 }
 
 int Span::size()

@@ -27,25 +27,13 @@ MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStac
 }
 
 template <typename T, typename Container>
-s_iterator MutantStack<T, Container>::begin()
+typename Container::iterator MutantStack<T, Container>::begin()
 {
     return (this->c.begin());
 }
 
 template <typename T, typename Container>
-s_iterator MutantStack<T, Container>::end()
+typename Container::iterator MutantStack<T, Container>::end()
 {
     return (this->c.end());
-}
-
-template <typename T, typename Container>
-rs_iterator MutantStack<T, Container>::rbegin()
-{
-    return (this->c.rbegin());
-}
-
-template <typename T, typename Container>
-rs_iterator MutantStack<T, Container>::rend()
-{
-    return (this->c.rend());
 }

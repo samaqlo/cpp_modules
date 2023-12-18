@@ -92,7 +92,7 @@ void    validate_date(std::string date)
     int year = atoi(date.substr(0, date.find('-')).c_str());
     int month = atoi(date.substr(date.find_first_of('-') + 1, date.find_last_of('-') - date.find_first_of('-') - 1).c_str());
     int day = atoi(date.substr(date.find_last_of('-') + 1, date.length()).c_str());
-    if ((year%4 && month == 2 && day > 28) || (month == 2 && day > 29) || (!month%2 && day > 30) || month < 0 || month > 12 || day < 0 || day > 31)
+    if (((year%4 || year % 100 == 0 || year % 400 != 0) && month == 2 && day > 28) || (month == 2 && day > 29) || (!month%2 && month != 8 && day > 30) || month < 0 || month > 12 || day < 0 || day > 31)
         throw (std::logic_error("Invalid date ==> " + date));
     if (year < 2009 || year > time_struct->tm_year + 1900 || (year == time_struct->tm_year + 1900 && (month > time_struct->tm_mon + 1 || (month == time_struct->tm_mon + 1 && day > time_struct->tm_mday))))
         throw (std::logic_error("invalid year ==>" + date.substr(0, date.find('-'))));

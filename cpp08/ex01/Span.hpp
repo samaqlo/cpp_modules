@@ -17,21 +17,12 @@ class Span
         Span& operator=(const Span & other);
         ~Span();
         void addNumber(int elem);
-        void addNumbers(std::vector<int> & seq);
+        void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         unsigned int shortestSpan();
         unsigned int longestSpan();
         void print_size();
         int size();
         int getNum(int index);
-
-        template < typename Container >
-        void	fillNumbers(const typename Container::iterator &begin, const typename Container::iterator &end )
-        {
-            for (typename Container::iterator i = begin; i != end; i++)
-            {
-                    this->addNumber(*i);    
-            }
-        }
 };
 
 
