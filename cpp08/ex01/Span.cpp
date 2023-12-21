@@ -70,7 +70,7 @@ void    Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::ite
     vec.insert(vec.end(), begin, end);
 }
 
-int Span::size()
+int Span::size() const
 {
     return (vec.size());
 }

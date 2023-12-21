@@ -11,6 +11,7 @@ class BitcoinExchange
 {
     private:
         std::map<std::string, float>  _DB;
+        std::string     file_name;
         std::ifstream   in_file;
         std::ifstream   db_file;
     public:

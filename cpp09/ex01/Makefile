@@ -1,6 +1,6 @@
-SRC = main.cpp BitcoinExchange.cpp
-OBG = $(SRC:.cpp=.o)
-NAME = btc
+SRC = main.cpp RPN.cpp
+OBG = $(SRC:.cpp=.o) 
+NAME = RPN
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME) : $(OBG)
@@ -8,7 +8,7 @@ $(NAME) : $(OBG)
 
 all : $(NAME)
 
-%.o : %.cpp BitcoinExchange.hpp
+%.o : %.cpp RPN.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :

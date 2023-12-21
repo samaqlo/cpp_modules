@@ -2,16 +2,17 @@
 
 BitcoinExchange::BitcoinExchange(std::string input_file)
 {
+    file_name.assign(input_file);
     this->in_file.open(input_file);
     if (!in_file.is_open())
-        throw (std::runtime_error("Can't open " + input_file + "file !!!"));
+        throw (std::runtime_error("Can't open " + input_file + " file !!!"));
     this->db_file.open("cpp_09/data.csv");
     if (!db_file.is_open())
         throw (std::runtime_error("please add a database"));
     this->fill_map();
 }
 
-BitcoinExchange::BitcoinExchange()
+BitcoinExchange::BitcoinExchange() : BitcoinExchange("input.txt")
 {
 
 }
@@ -23,13 +24,16 @@ BitcoinExchange::~BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange & other)
 {
-
+    *this = other;
 }
 
 BitcoinExchange & BitcoinExchange::operator=(BitcoinExchange & other)
 {
-    // _DB = other._DB;
-    // in_file = other.in_file;
+    _DB = other._DB;
+    file_name.assign(other.file_name);
+    in_file.open(file_name);
+    if (!in_file.is_open())
+        throw (std::runtime_error("Can't open " + file_name + " file !!!"));
 }
 
 void    BitcoinExchange::fill_map()
